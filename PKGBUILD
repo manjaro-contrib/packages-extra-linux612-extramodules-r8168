@@ -8,8 +8,8 @@ _linuxprefix=linux612
 
 _module=r8168
 pkgname="${_linuxprefix}-${_module}"
-pkgver=8.053.00
-pkgrel=0.8
+pkgver=8.054.00
+pkgrel=0.1
 pkgdesc="A kernel module for Realtek 8168 network cards"
 arch=('x86_64')
 url="http://www.realtek.com.tw"
@@ -20,7 +20,7 @@ makedepends=("${_linuxprefix}-headers")
 source=("https://github.com/mtorromeo/r8168/archive/$pkgver/${_module}-$pkgver.tar.gz"
         "https://github.com/mtorromeo/r8168/releases/download/$pkgver/${_module}-$pkgver.tar.gz.asc"
         'linux69.patch')
-sha256sums=('7c00cc13f17c45e1d1002e4c390f118204b04d42caba9d04d8ae95e953770857'
+sha256sums=('a1327ab43ac9537a030c0c7f60a4d2a3d8d4f7aa932f2fae5271f16fe77a8f2c'
             'SKIP'
             '583274ab545c9fe453a434a5f2b243575a0aeb3bf9c982f524c8efabb2745f84')
 validpgpkeys=('0CADAACF70F64C654E131B3111675C743429DDEF') # Massimiliano Torromeo <massimiliano.torromeo@gmail.com>
