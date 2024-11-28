@@ -7,7 +7,7 @@ _linuxprefix=linux612
 _module=r8168
 pkgname="${_linuxprefix}-${_module}"
 pkgver=8.054.00
-pkgrel=7
+pkgrel=8
 pkgdesc="A kernel module for Realtek 8168 network cards"
 arch=('x86_64')
 url="http://www.realtek.com.tw"
@@ -15,6 +15,7 @@ license=("GPL-2.0-only")
 groups=("${_linuxprefix}-extramodules")
 depends=('glibc' "${_linuxprefix}")
 makedepends=("${_linuxprefix}-headers")
+provides=("${_module}")
 source=("https://github.com/mtorromeo/r8168/archive/$pkgver/${_module}-$pkgver.tar.gz"
         "https://github.com/mtorromeo/r8168/releases/download/$pkgver/${_module}-$pkgver.tar.gz.asc"
         'linux69.patch')
@@ -54,7 +55,7 @@ package() {
   cd "${_module}-$pkgver"
   install -Dm644 src/*.ko -t "$pkgdir/usr/lib/modules/${_kernver}/extramodules/"
   find "$pkgdir" -name '*.ko' -exec strip --strip-debug {} +
- find "$pkgdir" -name '*.ko' -exec zstd --rm -19 {} +
+  find "$pkgdir" -name '*.ko' -exec zstd --rm -19 {} +
 
 # We'll let mhwd-db handle blacklisting for now
 #  echo "blacklist r8169" | \
