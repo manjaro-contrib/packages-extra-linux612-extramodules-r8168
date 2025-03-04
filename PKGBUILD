@@ -17,18 +17,13 @@ depends=('glibc' "${_linuxprefix}")
 makedepends=("${_linuxprefix}-headers")
 provides=("${_module}")
 source=("https://github.com/mtorromeo/r8168/archive/$pkgver/${_module}-$pkgver.tar.gz"
-        "https://github.com/mtorromeo/r8168/releases/download/$pkgver/${_module}-$pkgver.tar.gz.asc"
-        'linux69.patch')
+	"https://github.com/mtorromeo/r8168/releases/download/$pkgver/${_module}-$pkgver.tar.gz.asc")
 sha256sums=('f101df6f11b82b33c5820ea1525ee16dfb1f98388b0494fb85a61e0268752e4a'
-            'SKIP'
-            '583274ab545c9fe453a434a5f2b243575a0aeb3bf9c982f524c8efabb2745f84')
+            'SKIP')
 validpgpkeys=('0CADAACF70F64C654E131B3111675C743429DDEF') # Massimiliano Torromeo <massimiliano.torromeo@gmail.com>
 
 prepare() {
   cd "${_module}-$pkgver"
-
-  # https://github.com/mtorromeo/r8168/pull/60
-  patch -Np1 -i ../linux69.patch
 }
 
 build() {
